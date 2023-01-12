@@ -24,11 +24,20 @@
             for(int i=0; i < lista.size(); i++){
                 out.print("Código: " + lista.get(i).getLivroId() + "<br/>");
                 out.print("Titulo: " + lista.get(i).getLivro() + "<br/>");
+                
+                out.print("<a href='frmExcluirLivroView.jsp?id=" 
+                + lista.get(i).getLivroId() +
+                "&nome="+ lista.get(i).getLivro() +                
+                "'>Excluir</a>");
+                
+            %><br/><br/><%
             }
            } catch(Exception e){
             out.print("Não há livros");
            }  
             
          %>   
+         
+        
     </body>
 </html>
