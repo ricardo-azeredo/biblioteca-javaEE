@@ -37,13 +37,20 @@ public class LivroDAO {
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery(sql);
            
-            while(rs.next()){
+            for(int i = 0; rs.next(); i++){
                 LivroDTO livroDTO = new LivroDTO();
                 livroDTO.setLivroId(rs.getInt("id"));
                 livroDTO.setLivro(rs.getString("nome_livro"));
-               
-               lista.add(livroDTO);
-           }
+
+                lista.add(livroDTO);
+            }
+//            while (rs.next()) {
+//                LivroDTO livroDTO = new LivroDTO();
+//                livroDTO.setLivroId(rs.getInt("id"));
+//                livroDTO.setLivro(rs.getString("nome_livro"));
+//
+//                lista.add(livroDTO);
+//            }
          
             pstm.close(); //fecha a conexão.
         } catch(SQLException e){
