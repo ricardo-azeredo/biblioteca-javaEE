@@ -8,16 +8,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <%
+        <%
             try{
                 LivroDTO livroDTO = new LivroDTO();
                 livroDTO.setLivroId(
-                    Integer.parseInt(request.getParameter("id"))
+                    Integer.parseInt(request.getParameter("id"))                    
                 );
-                
+                livroDTO.setLivro(request.getParameter("nome"));
 
                 LivroDAO livroDAO = new LivroDAO();
-                livroDAO.ExcluirLivro(livroDTO);
+                livroDAO.AlterarLivro(livroDTO);
                 
                 response.sendRedirect("listarLivro.jsp");
             } catch(Exception e){
